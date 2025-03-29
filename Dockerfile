@@ -18,6 +18,7 @@ WORKDIR /app
 COPY index.js ./
 COPY package.json ./
 COPY start.sh ./
+COPY nginx.conf /etc/nginx/nginx.conf
 # 安装应用程序依赖
     
 RUN apk update \
