@@ -5,7 +5,7 @@ FROM node:alpine
 ENV NODE_ENV=production
 
 # 设置 PORT 环境变量为默认值 3000
-ENV PORT=3000
+ENV PORT=80
 
 # 暴露容器监听的端口
 EXPOSE ${PORT}
