@@ -1,16 +1,30 @@
-FROM nginx:latest
-EXPOSE 80
+# 使用 Node.js的 Alpine 版本
+FROM node:alpine
+
+# 设置 NODE_ENV 环境变量为 production
+ENV NODE_ENV=production
+
+# 设置 PORT 环境变量为默认值 3000
+ENV PORT=3000
+
+# 暴露容器监听的端口
+EXPOSE ${PORT}
+
+# 设置工作目录
 WORKDIR /app
-USER root
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY config.json ./
-COPY entrypoint.sh ./
+# 复制应用程序代码和依赖项清单
 
-RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl && \
-    wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
-    unzip temp.zip xray && \
-    rm -f temp.zip && \
-    chmod -v 755 xray entrypoint.sh
+COPY index.js ./
+COPY package.json ./
+COPY start.sh ./
+# 安装应用程序依赖
+    
+RUN apk update \
+    && apk add --no-cache bash curl zsh \
+    && chmod 777 start.sh \
+    && npm install \
+    && rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+# 启动应用程序
+CMD node index.js
