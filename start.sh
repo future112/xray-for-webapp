@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # //隧道相关设置（去掉下面变量前面#启用，否则使用临时隧道）
-export TOK=${TOK:-''}  # 隧道token或json
-export ARGO_DOMAIN=${ARGO_DOMAIN:-''} # 隧道域名
+export TOK=${TOK:-'eyJhIjoiNjc0MmMxNDI5ZDE4OTA3NjMzZjMyZjQ2MWM5MzUwOWMiLCJ0IjoiZmZjY2EwMWQtMmM3Ny00NzI5LTk3ZDktYWZmNDJhNDNiZThmIiwicyI6Ik9EUTNPRGcxWkRRdFpEQTJOaTAwTWpNMExUZzNZVGN0T1RKbU5qTTNOV1kwTWpkaiJ9'}  # 隧道token或json
+export ARGO_DOMAIN=${ARGO_DOMAIN:-'webapp.future13800.eu.org'} # 隧道域名
 
 # //哪吒相关设置
-export NEZHA_SERVER=${NEZHA_SERVER:-''}
-export NEZHA_KEY=${NEZHA_KEY:-''}
+export NEZHA_SERVER=${NEZHA_SERVER:-'nezha.babiq.eu.org'}
+export NEZHA_KEY=${NEZHA_KEY:-'5tjEnE6IPUjYjvCFpW'}
 export NEZHA_PORT=${NEZHA_PORT:-'443'}
 export NEZHA_TLS=${NEZHA_TLS:-'1'}  # 1启用tls,0关闭tls
 
